@@ -1,5 +1,6 @@
 package targ.study.petclinic.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,8 +20,18 @@ public class Pet {
     private LocalDate aniversario;
 
     @ManyToOne
+    @JsonIgnore
+    private Dono dono;
+
+    @ManyToOne
     @JoinColumn(name = "consulta_ID")
     private Consulta consulta;
 
+    public Dono getDono() {
+        return dono;
+    }
 
+    public void setDono(Dono dono) {
+        this.dono = dono;
+    }
 }
