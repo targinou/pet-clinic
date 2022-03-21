@@ -1,18 +1,39 @@
 package targ.study.petclinic.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import targ.study.petclinic.model.Pet;
+import targ.study.petclinic.service.PetService;
 
 @RestController
-@RequestMapping(path = "/hello")
+@RequestMapping(path = "/api/pet")
 public class PetController {
 
-    @GetMapping
-    public ResponseEntity hello(){
-        return new ResponseEntity<>("Hello World!", HttpStatus.OK);
+    @Autowired
+    private final PetService petService;
+
+    public PetController(PetService petService) {
+        this.petService = petService;
+    }
+
+    @PostMapping(value = "/cadastrar")
+    public ResponseEntity<?> cadastrar(@RequestBody Pet pet){
+        Pet petSalvo = petService.cadastrar(pet);
+        if(petSalvo != null){
+            return new ResponseEntity<>(petSalvo, HttpStatus.OK);
+        }
+        return null;
+    }
+
+    @GetMapping(value = "/buscar-todos")
+    public ResponseEntity<?> buscarTodos(){
+        return new ResponseEntity<>(petService.buscarTodos(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/buscar-por-id/{id}")
+    public ResponseEntity<?> buscarPorId(@PathVariable Integer id){
+        return new ResponseEntity<>(petService.buscarPorId(id), HttpStatus.OK);
     }
 }
