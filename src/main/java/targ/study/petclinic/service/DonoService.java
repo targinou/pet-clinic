@@ -17,7 +17,6 @@ public class DonoService{
     }
 
     public Dono cadastrar(Dono dono){
-        System.out.println("Cadastrando dono" + dono.getNome());
         return donoRepository.save(dono);
     }
 
