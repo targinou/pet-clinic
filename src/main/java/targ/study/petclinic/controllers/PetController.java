@@ -1,12 +1,12 @@
-package targ.study.petclinic.controller;
+package targ.study.petclinic.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import targ.study.petclinic.model.DTO.ResponseDTO;
-import targ.study.petclinic.model.Pet;
-import targ.study.petclinic.service.PetService;
+import targ.study.petclinic.models.DTO.ResponseDTO;
+import targ.study.petclinic.models.Pet;
+import targ.study.petclinic.services.PetService;
 
 import java.util.List;
 
@@ -44,5 +44,14 @@ public class PetController {
     public ResponseEntity<ResponseDTO<Pet>> remover(@PathVariable Integer id){
         petService.remover(id);
         return new ResponseEntity<>(new ResponseDTO<>(200, List.of("Pet deletado!"), null), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/atualizar/{id}")
+    public <pet> ResponseEntity<?> atualizar(@PathVariable Integer id, @RequestBody Pet pet){
+        Pet petAtualizado = petService.atualizar(id, pet);
+        if (petAtualizado != null){
+            return new ResponseEntity<>(new ResponseDTO<>(200, List.of("Pet atualizado!"), null), HttpStatus.OK);
+        }
+        else return null;
     }
 }
