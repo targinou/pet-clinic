@@ -1,6 +1,7 @@
-package targ.study.petclinic.model;
+package targ.study.petclinic.models;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class Consulta {
@@ -8,7 +9,7 @@ public class Consulta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
-    private Boolean validado;
+    private LocalDate data;
+    private Boolean status;
 
 }
