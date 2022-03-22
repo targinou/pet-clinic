@@ -1,18 +1,14 @@
-package targ.study.petclinic.model;
+package targ.study.petclinic.models;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 
 @Entity
 public class Vet extends Pessoa{
 
-    @NotBlank
-    @NotNull
-    private String identificador;
+    private String registro;
 
     @ManyToOne
     @JoinColumn(name = "consulta_ID")
