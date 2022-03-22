@@ -1,13 +1,13 @@
-package targ.study.petclinic.controller;
+package targ.study.petclinic.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import targ.study.petclinic.model.Dono;
-import targ.study.petclinic.model.Pet;
-import targ.study.petclinic.service.DonoService;
-import targ.study.petclinic.service.PetService;
+import targ.study.petclinic.models.Dono;
+import targ.study.petclinic.models.Pet;
+import targ.study.petclinic.services.DonoService;
+import targ.study.petclinic.services.PetService;
 
 import java.util.List;
 
