@@ -1,8 +1,12 @@
 package targ.study.petclinic.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Data
 @Entity
 public class Consulta {
     @Id
@@ -10,6 +14,15 @@ public class Consulta {
     private Long id;
 
     private LocalDate data;
-    private Boolean status;
+
+    private StatusConsulta status;
+
+    @ManyToOne
+    @JsonIgnore
+    private Pet pet;
+
+    @ManyToOne
+    @JsonIgnore
+    private Vet vet;
 
 }
