@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
@@ -23,15 +24,7 @@ public class Pet {
     @JsonIgnore
     private Dono dono;
 
-    @ManyToOne
-    @JoinColumn(name = "consulta_ID")
-    private Consulta consulta;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+    private List<Consulta> consultas;
 
-    public Dono getDono() {
-        return dono;
-    }
-
-    public void setDono(Dono dono) {
-        this.dono = dono;
-    }
 }
