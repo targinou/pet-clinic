@@ -1,4 +1,4 @@
-package targ.study.petclinic.model;
+package targ.study.petclinic.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

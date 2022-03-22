@@ -1,4 +1,4 @@
-package targ.study.petclinic.model;
+package targ.study.petclinic.models;
 
 import lombok.Data;
 

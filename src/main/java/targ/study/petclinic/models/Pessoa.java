@@ -1,11 +1,8 @@
-package targ.study.petclinic.model;
+package targ.study.petclinic.models;
 
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
