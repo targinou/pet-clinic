@@ -1,4 +1,4 @@
-package targ.study.petclinic.model.DTO;
+package targ.study.petclinic.models.DTO;
 
 import lombok.*;
 
