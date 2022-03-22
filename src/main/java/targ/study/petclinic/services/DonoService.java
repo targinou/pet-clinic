@@ -1,9 +1,9 @@
-package targ.study.petclinic.service;
+package targ.study.petclinic.services;
 
 import org.springframework.stereotype.Service;
 import targ.study.petclinic.exceptions.BadRequestExeption;
-import targ.study.petclinic.model.Dono;
-import targ.study.petclinic.repository.DonoRepository;
+import targ.study.petclinic.models.Dono;
+import targ.study.petclinic.repositories.DonoRepository;
 
 import java.util.List;
 
