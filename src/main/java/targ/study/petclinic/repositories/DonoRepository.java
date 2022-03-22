@@ -1,10 +1,8 @@
-package targ.study.petclinic.repository;
+package targ.study.petclinic.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import targ.study.petclinic.model.Dono;
-
-import java.util.Optional;
+import targ.study.petclinic.models.Dono;
 
 @Repository
 public interface DonoRepository extends JpaRepository<Dono, Integer> {
