@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private LocalDate data;
 

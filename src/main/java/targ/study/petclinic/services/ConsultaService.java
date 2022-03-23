@@ -34,8 +34,15 @@ public class ConsultaService {
         Optional<Consulta> consultaAtualizar = consultaRepository.findById(id);
         if(consultaAtualizar.isPresent()){
             Consulta consulta = consultaAtualizar.get();
-            consulta.setStatus(StatusConsulta.valueOf(status));
-
+            System.out.println("AQUIII: "+status);
+            switch(status) {
+                case "Em analise":
+                    consulta.setStatus(StatusConsulta.EmAnalise);
+                case "Confirmado":
+                    consulta.setStatus(StatusConsulta.Confirmado);
+                case "Rejeitado":
+                    consulta.setStatus(StatusConsulta.Rejeitado);
+            }
             return consultaRepository.save(consulta);
         }
         return null;
