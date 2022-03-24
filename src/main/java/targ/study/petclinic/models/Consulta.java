@@ -15,7 +15,7 @@ public class Consulta {
 
     private LocalDate data;
 
-    private StatusConsulta status;
+    private String status;
 
     @ManyToOne
     @JsonIgnore

@@ -5,8 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import targ.study.petclinic.models.Consulta;
-import targ.study.petclinic.models.DTO.StatusConsultaRequestDTO;
-import targ.study.petclinic.models.StatusConsulta;
 import targ.study.petclinic.models.Vet;
 import targ.study.petclinic.services.ConsultaService;
 import targ.study.petclinic.services.VetService;
@@ -37,13 +35,13 @@ public class VetController {
     }
 
     @PutMapping(value = "/{idVet}/alterar-status/{idConsulta}")
-    public ResponseEntity<?> alterarStatus(@PathVariable Integer idVet, @PathVariable Integer idConsulta, @RequestBody StatusConsultaRequestDTO status){
+    public ResponseEntity<?> alterarStatus(@PathVariable Integer idVet, @PathVariable Integer idConsulta, @RequestBody String status){
         Vet vet = vetService.buscaPorId(idVet);
         Consulta consulta = consultaService.buscarPorId(idConsulta);
         if(Boolean.FALSE.equals(vet.equals(consulta.getVet()))){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        Consulta consultaAtualizada = consultaService.atualizar(idConsulta, status.getDescricao());
+        Consulta consultaAtualizada = consultaService.atualizar(consulta, status);
         return new ResponseEntity<>(consultaAtualizada, HttpStatus.OK);
     }
 
