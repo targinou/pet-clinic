@@ -1,0 +1,1 @@
+web: java -jar /src/test/java/targ/study/petclinic/PetClinicApplicationTests.java
