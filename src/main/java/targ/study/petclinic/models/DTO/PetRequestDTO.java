@@ -5,11 +5,13 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class StatusConsultaRequestDTO {
-    private String descricao;
-
+public class PetRequestDTO {
+    private String nome;
+    private String aniversario;
 }
