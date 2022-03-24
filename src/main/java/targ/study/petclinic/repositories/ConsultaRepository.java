@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 import targ.study.petclinic.models.Consulta;
 
 @Repository
-public interface ConsultaRepository extends JpaRepository<Consulta, Integer> {
-}
+public interface ConsultaRepository extends JpaRepository<Consulta, Integer> { }

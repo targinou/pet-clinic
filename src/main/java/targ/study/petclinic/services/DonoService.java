@@ -31,4 +31,5 @@ public class DonoService{
     public Dono buscar(Integer id){
         return donoRepository.findById(id).orElseThrow(()-> new BadRequestExeption("deu ruim"));
     }
+
 }

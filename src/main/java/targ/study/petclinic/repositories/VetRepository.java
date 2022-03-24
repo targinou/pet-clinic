@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 import targ.study.petclinic.models.Vet;
 
 @Repository
-public interface VetRepository extends JpaRepository<Vet, Integer> {
-}
+public interface VetRepository extends JpaRepository<Vet, Integer> { }

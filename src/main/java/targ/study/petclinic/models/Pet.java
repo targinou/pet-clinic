@@ -14,10 +14,7 @@ public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
-
-
     private String nome;
-
     private LocalDate aniversario;
 
     @ManyToOne

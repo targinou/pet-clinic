@@ -10,7 +10,6 @@ import java.util.List;
 public class Vet extends Pessoa{
 
     private String registro;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vet")
     private List<Consulta> consultas;
 

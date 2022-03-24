@@ -12,9 +12,7 @@ public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private LocalDate data;
-
     private String status;
 
     @ManyToOne

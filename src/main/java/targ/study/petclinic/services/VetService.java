@@ -31,4 +31,5 @@ public class VetService {
     public Vet buscaPorId(Integer id){
         return vetRepository.findById(id).orElseThrow(()-> new BadRequestExeption("deu ruim"));
     }
+
 }

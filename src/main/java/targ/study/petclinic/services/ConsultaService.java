@@ -34,4 +34,5 @@ public class ConsultaService {
         consultaAtualizar.setStatus(status);
         return consultaRepository.save(consultaAtualizar);
     }
+
 }

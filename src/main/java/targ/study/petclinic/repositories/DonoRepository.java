@@ -5,7 +5,4 @@ import org.springframework.stereotype.Repository;
 import targ.study.petclinic.models.Dono;
 
 @Repository
-public interface DonoRepository extends JpaRepository<Dono, Integer> {
-
-
-}
+public interface DonoRepository extends JpaRepository<Dono, Integer> { }
