@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import targ.study.petclinic.models.Consulta;
+import targ.study.petclinic.models.DTO.ConsultaRequestDTO;
 import targ.study.petclinic.models.DTO.ResponseDTO;
 import targ.study.petclinic.models.Pet;
 import targ.study.petclinic.models.StatusConsulta;
@@ -12,6 +13,7 @@ import targ.study.petclinic.models.Vet;
 import targ.study.petclinic.services.ConsultaService;
 import targ.study.petclinic.services.PetService;
 import targ.study.petclinic.services.VetService;
+import targ.study.petclinic.utils.DateUtils;
 
 import java.util.List;
 
@@ -69,14 +71,14 @@ public class PetController {
     }
 
     @PostMapping(value = "/cadastrar-consulta/{idPet}/vet/{idVet}")
-    public ResponseEntity<?> cadastrarPet(@PathVariable Integer idPet,@PathVariable Integer idVet, @RequestBody Consulta consulta){
+    public ResponseEntity<?> cadastrarPet(@PathVariable Integer idPet,@PathVariable Integer idVet, @RequestBody ConsultaRequestDTO consultaDTO){
         Pet petSalvo = petService.buscarPorId(idPet);
         Vet vetSalvo = vetService.buscaPorId(idVet);
-
+        Consulta consulta = new Consulta();
         consulta.setPet(petSalvo);
         consulta.setVet(vetSalvo);
         consulta.setStatus("Em analise");
-
+        consulta.setData(DateUtils.converter(consultaDTO.getData()));
         Consulta consultaSalva = consultaService.cadastrar(consulta);
         List<Consulta> ListaConsultasPet = petSalvo.getConsultas();
         ListaConsultasPet.add(consultaSalva);

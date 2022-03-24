@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import targ.study.petclinic.models.DTO.PetRequestDTO;
 import targ.study.petclinic.models.Dono;
 import targ.study.petclinic.models.Pet;
 import targ.study.petclinic.services.DonoService;
 import targ.study.petclinic.services.PetService;
+import targ.study.petclinic.utils.DateUtils;
 
 import java.util.List;
 
@@ -36,8 +38,11 @@ public class DonoController {
     }
 
     @PostMapping(value = "/cadastrar-pet/{id}")
-    public ResponseEntity<?> cadastrarPet(@PathVariable Integer id, @RequestBody Pet pet){
+    public ResponseEntity<?> cadastrarPet(@PathVariable Integer id, @RequestBody PetRequestDTO petDTO){
         Dono donoSalvo = donoService.buscar(id);
+        Pet pet = new Pet();
+        pet.setNome(petDTO.getNome());
+        pet.setAniversario(DateUtils.converter(petDTO.getAniversario()));
         pet.setDono(donoSalvo);
         Pet petSalvo = petService.cadastrar(pet);
         List<Pet> ListaPet = donoSalvo.getPets();
