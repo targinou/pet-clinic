@@ -65,7 +65,7 @@ public class PetController {
         if (petAtualizado != null){
             return new ResponseEntity<>(new ResponseDTO<>(200, List.of("Pet atualizado!"), null), HttpStatus.OK);
         }
-        else return null;
+        else return new ResponseEntity<>(new ResponseDTO<>(400, List.of("Pet não encontrado!"), null), HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping(value = "/cadastrar-consulta/{idPet}/vet/{idVet}")
@@ -75,7 +75,7 @@ public class PetController {
 
         consulta.setPet(petSalvo);
         consulta.setVet(vetSalvo);
-        consulta.setStatus(StatusConsulta.EmAnalise);
+        consulta.setStatus("Em analise");
 
         Consulta consultaSalva = consultaService.cadastrar(consulta);
         List<Consulta> ListaConsultasPet = petSalvo.getConsultas();

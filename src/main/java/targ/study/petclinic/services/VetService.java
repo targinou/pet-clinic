@@ -24,7 +24,7 @@ public class VetService {
         vetRepository.deleteById(id);
     }
 
-    public List<Vet> buscarTods(){
+    public List<Vet> buscarTodos(){
         return vetRepository.findAll();
     }
 
